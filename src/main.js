@@ -10,10 +10,9 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
     let media;
 
     if (data.media_type === "image") {
-      media = `<img src="${data.url}" style="border: 3px; border-color: #306bac; width: clamp(310px, 60vw, 750px) height: auto;"/>`;
+      media = `<img class="nasa-media" src="${data.url}" alt="${data.title}" />`;
     } else {
-      media = `<video src="${data.url}" controls style="border: 3px; border-color: #306bac; width: 20rem; height: auto;"></video>`;
-    }
+      media = `<video class="nasa-media" src="${data.url}" controls></video>`; 
 
     document.querySelector("#app").innerHTML = `
       <h1>${data.title}</h1>

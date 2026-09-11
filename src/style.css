@@ -5,3 +5,9 @@ body {
   color: #ffffff;
 }
 
+.nasa-media {
+  width: clamp(310px, 60vw, 750px);
+  height: auto;
+  border: 3px solid #306bac;
+  display: block;
+}
