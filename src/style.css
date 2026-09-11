@@ -2,5 +2,7 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17px;
   margin: 0;
   padding: 0;
-  position: relative;
+  color: #ffffff;
 }
+
+#app { border: 3px; border-color: #306bac; width: 12rem; height: auto;}
