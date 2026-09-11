@@ -27,6 +27,15 @@ nav a {
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+.nav-button:hover {
+  background-color: #003f6f;
+  transform: translateY(-1px);
+}
+
+.nav-button:active {
+  transform: translateY(0);
+}
+
 .nasa-media {
   width: clamp(310px, 60vw, 750px);
   height: auto;
