@@ -24,3 +24,5 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
   .catch(err => {
     document.querySelector("#app").innerHTML = `<p>Error: ${err.message}</p>`;
   });
+
+  
