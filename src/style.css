@@ -4,5 +4,6 @@ body {
   padding: 0;
   color: #ffffff;
 }
+body { outline: 6px solid red; }
 
-#app { border: 3px; border-color: #306bac; width: 12rem; height: auto;}
+.NASAAPI { border: 3px; border-color: #306bac; width: 12rem; height: auto;}
