@@ -42,13 +42,21 @@ function stripHtml(text = '') {
     .trim();
 }
 
+function setDictionaryResult(message = '', isVisible = false) {
+  const result = document.getElementById('result');
+
+  if (!result) return;
+
+  result.textContent = message;
+  result.style.display = isVisible ? 'block' : 'none';
+}
+
 async function lookupWord() {
   const wordInput = document.getElementById('word');
-  const result = document.getElementById('result');
   const word = wordInput?.value.trim();
 
   if (!word) {
-    if (result) result.textContent = 'Please enter a word';
+    setDictionaryResult('', false);
     return;
   }
 
@@ -69,13 +77,9 @@ async function lookupWord() {
     if (!definition) throw new Error('word not found');
 
     const clean = stripHtml(definition);
-    if (result) {
-      result.textContent = `${word} (${entry?.partOfSpeech || 'word'}): ${clean}`;
-    }
+    setDictionaryResult(`${word} (${entry?.partOfSpeech || 'word'}): ${clean}`, true);
   } catch (error) {
-    if (result) {
-      result.textContent = 'Word not found';
-    }
+    setDictionaryResult('', false);
   }
 }
 

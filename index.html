@@ -30,10 +30,13 @@
   <button type="submit">Search</button>
 </form>
 
-<input id="word" class="dictionary-input" type="text" placeholder="Enter a word" />
-<button id="lookup" class="dictionary-button">Look up</button>
-<div id="result" class="dictionary-result"></div>
-
+<div class="dictionary-panel">
+  <div class="dictionary-controls">
+    <input id="word" class="dictionary-input" type="text" placeholder="Enter a word" />
+    <button id="lookup" class="dictionary-button">Look up</button>
+  </div>
+  <div id="result" class="dictionary-result" aria-live="polite"></div>
+</div>
 
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
