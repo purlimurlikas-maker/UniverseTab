@@ -83,3 +83,8 @@ nav a {
   cursor: pointer;
 }
 
+#word {
+  color: #000;
+  background: #fff;
+  -webkit-text-fill-color: #000;
+}
