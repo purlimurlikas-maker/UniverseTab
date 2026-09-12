@@ -22,7 +22,7 @@ if (data.media_type === 'image') {
 }
 
       app.innerHTML = `
-        <h1>${data.title}</h1>
+        <h2>${data.title}</h2>
         ${media}
         <p>${data.explanation}</p>
       `;
