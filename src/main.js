@@ -29,21 +29,34 @@ async function lookupWord() {
   const word = document.getElementById('word').value.trim();
   if (!word) return;
 
-   try {
-    const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+  try {
+    const res = await fetch(`https://en.wiktionary.org/api/rest_v1/page/definition/${word}`);
     if (!res.ok) throw new Error('not found');
     const data = await res.json();
 
-const entry = data[0];
-    const meaning = entry.meanings[0];
-    const definition = meaning.definitions[0].definition;
-  
+    // The response has language keys. "en" is English.
+    const english = data.en;
+    if (!english || !english.length) throw new Error('not found');
+
+    // First part of speech, first definition
+    const entry = english[0];
+    const definition = entry.definitions[0].definition;
+
+    // Strip out the HTML tags Wikipedia adds
+    const clean = definition.replace(/<[^>]+>/g, '');
+
     document.getElementById('result').textContent =
-      `${entry.word}: ${definition}`;
-  }  catch (err) {
-  document.getElementById('result').textContent = 'Error: ' + err.message;
+      `${word} (${entry.partOfSpeech}): ${clean}`;
+  } catch {
+    document.getElementById('result').textContent = 'Word not found';
+  }
 }
 
 document.getElementById('lookup').onclick = lookupWord;
 document.getElementById('word').onkeydown = (e) => e.key === 'Enter' && lookupWord();
-}
+
+const lines = english.map(e => {
+  const def = e.definitions[0].definition.replace(/<[^>]+>/g, '');
+  return `${e.partOfSpeech}: ${def}`;
+});
+document.getElementById('result').textContent = lines.join('\n');
