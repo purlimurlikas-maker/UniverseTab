@@ -55,8 +55,3 @@ async function lookupWord() {
 document.getElementById('lookup').onclick = lookupWord;
 document.getElementById('word').onkeydown = (e) => e.key === 'Enter' && lookupWord();
 
-const lines = english.map(e => {
-  const def = e.definitions[0].definition.replace(/<[^>]+>/g, '');
-  return `${e.partOfSpeech}: ${def}`;
-});
-document.getElementById('result').textContent = lines.join('\n');
