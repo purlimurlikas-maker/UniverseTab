@@ -55,15 +55,18 @@ nav a {
   width: clamp(200px, 35vw, 400px);
   margin-left: auto;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 1rem;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+ gap: 1.5rem;
+  width: 100%;
+  padding: 1rem 2rem 0 0;
+  box-sizing: border-box;
 }
 
 #app h3,
-.nasa-media,
-.explanation {
-  width: clamp(200px, 35vw, 400px);
+.nasa-media {
+  width: clamp(260px, 35vw, 500px);
 }
 
 #timeElement { position: absolute; top: 20px; left: 90%; transform: translateX(-50%); z-index: 2; color: #ffffff; font-weight: 900; text-align: left; font-size: clamp(1rem, 4vw, 1.5rem); border: 3px solid #306bac; background-color:#141b41; border-radius: 10px; padding: 10px; margin: 0; font-family: "Petrona", serif; }
@@ -152,12 +155,13 @@ nav a {
 }
 
 .explanation {
-
-  padding: 0.9rem 1.4rem;
-  border: 3px solid #98b9f2;
-  border-radius: 12px;
+  max-width: 420px;
+  margin: 0;
+  padding: 1rem 1.2rem;
   background: #6f9ceb;
   color: #141b41;
+  border: 3px solid #98b9f2;
+  border-radius: 12px;
   line-height: 1.5;
   box-sizing: border-box;
 }
