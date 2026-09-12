@@ -27,8 +27,6 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
 
 import './style.css';
 
-const API_KEY = import.meta.env.VITE_NASA_API_KEY;
-
 // Only run NASA if the API key is set
 if (API_KEY) {
   document.querySelector("#app").innerHTML = "<p>loading...</p>";
