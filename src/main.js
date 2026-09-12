@@ -24,7 +24,7 @@ if (data.media_type === 'image') {
       app.innerHTML = `
         <h3>${data.title}</h3>
         ${media}
-        <p>${data.explanation}</p>
+        <p class="explanation">${data.explanation}</p>
       `;
     })
     .catch((err) => {
