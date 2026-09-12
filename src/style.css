@@ -6,10 +6,10 @@ body {
   position: relative;
 }
 
-h1 {  font-family: "Orbitron", sans-serif; font-weight: 900; font-style: italic; text-align: center; font-size: clamp(1.5rem, 6vw, 4rem) }
-h2 { font-family: "Orbitron", sans-serif; font-weight: 900; font-style: italic; text-align: justify; font-size: clamp(1.25rem, 4vw, 2.5rem) }
+h1 {  font-family: "Orbitron", sans-serif; font-weight: 900; text-align: center; font-size: clamp(1.5rem, 6vw, 4rem); color: #918ef4; }
+h2 { font-family: "Orbitron", sans-serif; font-weight: 900; text-align: justify; font-size: clamp(1.25rem, 4vw, 2.5rem) }
 nav{ text-align:center } 
-normal-text { font-family: "Petrona", serif;  font-weight: 900; font-style: italic; text-align: justify; font-size: clamp(1rem, 2vw, 1.5rem) }
+normal-text { font-family: "Petrona", serif;  font-weight: 600; text-align: justify; font-size: clamp(1rem, 2vw, 1.5rem) }
 
 nav a {
  display: inline-block;
@@ -22,7 +22,7 @@ nav a {
   background-color: #141b41;
   text-decoration: none;
   border-radius: 12px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Petrona", serif;
   border: 3px solid #306bac ;
   font-weight: 700;
   transition: transform 0.2s ease, background-color 0.2s ease;
@@ -45,9 +45,10 @@ nav a {
   border: 3px solid #306bac;
   display: block;
   background-color: #141b41;
+  border-radius: 12px;
 }
 
-#timeElement { position: absolute; top: 20px; left: 90%; transform: translateX(-50%); z-index: 2; color: #ffffff; font-weight: 900; text-align: left; font-size: clamp(1rem, 4vw, 1.5rem); border: 3px solid #306bac; background-color:#141b41; border-radius: 10px; padding: 10px; margin: 0; }
+#timeElement { position: absolute; top: 20px; left: 90%; transform: translateX(-50%); z-index: 2; color: #ffffff; font-weight: 900; text-align: left; font-size: clamp(1rem, 4vw, 1.5rem); border: 3px solid #306bac; background-color:#141b41; border-radius: 10px; padding: 10px; margin: 0; font-family: "Petrona", serif; }
 
 .search-form {
   display: flex;
@@ -63,10 +64,11 @@ nav a {
   flex: 1;
   padding: 0.9rem 1rem;
   border: 3px solid #306bac;
-  border-radius: 999px;
+  border-radius: 12px;
   background: #141b41;
   color: white;
   font-size: 1rem;
+  font-family: "Petrona", serif;
 }
 
 .search-form input::placeholder {
@@ -76,15 +78,32 @@ nav a {
 .search-form button {
   padding: 0.9rem 1.4rem;
   border: 3px solid #306bac;
-  border-radius: 999px;
+  border-radius: 12px;
   background: #141b41;
   color: white;
   font-weight: 700;
   cursor: pointer;
+  font-family: "Petrona", serif;
 }
 
-#word {
-  color: #000;
-  background: #fff;
-  -webkit-text-fill-color: #000;
+.dictionary-input {
+  padding: 0.9rem 1.4rem;
+  border: 3px solid #306bac;
+  border-radius: 12px;
+  background: #141b41;
+  color: #ffffff;
+  font-family: "Petrona", serif;
 }
+
+.dictionary-button {
+  padding: 0.9rem 1.4rem;
+  border: 3px solid #306bac;
+  border-radius: 12px;
+  background: #141b41;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: "Petrona", serif;
+}
+
+
+
