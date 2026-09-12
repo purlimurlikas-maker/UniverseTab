@@ -107,5 +107,13 @@ nav a {
   font-family: "Petrona", serif;
 }
 
-
+.dictionary-result {
+  padding: 0.9rem 1.4rem;
+  border: 3px solid #98b9f2;
+  border-radius: 12px;
+  background: #6f9ceb;
+  color: #141b41;
+  width: 400px;
+  height: auto;
+}
 
