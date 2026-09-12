@@ -1,25 +1,26 @@
 import './style.css';
 
-const API_KEY = import.meta.env.VITE_NASA_API_KEY;
+const NASA_API_KEY = import.meta.env.VITE_NASA_API_KEY;
 const app = document.querySelector('#app');
 
 if (app) {
-  app.innerHTML = '<p>loading...</p>';
+  app.innerHTML = '<p>Loading...</p>';
 }
 
-if (API_KEY) {
-  fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
-    .then((response) => response.json())
+if (NASA_API_KEY) {
+  fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`NASA request failed (${response.status})`);
+      }
+      return response.json();
+    })
     .then((data) => {
       if (!app) return;
 
-     let media;
-
-if (data.media_type === 'image') {
-  media = `<img class="nasa-media" src="${data.url}" alt="${data.title}" />`;
-} else {
-  media = `<video class="nasa-media" src="${data.url}" controls></video>`;
-}
+      const media = data.media_type === 'image'
+        ? `<img class="nasa-media" src="${data.url}" alt="${data.title}" />`
+        : `<video class="nasa-media" src="${data.url}" controls></video>`;
 
       app.innerHTML = `
         <h3>${data.title}</h3>
@@ -29,9 +30,11 @@ if (data.media_type === 'image') {
     })
     .catch((err) => {
       if (app) {
-        app.innerHTML = `<p>Error: ${err.message}</p>`;
+        app.innerHTML = `<p>Error loading NASA photo: ${err.message}</p>`;
       }
     });
+} else if (app) {
+  app.innerHTML = '<p>Add VITE_NASA_API_KEY to your .env file to load the NASA photo.</p>';
 }
 
 function stripHtml(text = '') {
@@ -79,7 +82,7 @@ async function lookupWord() {
     const clean = stripHtml(definition);
     setDictionaryResult(`${word} (${entry?.partOfSpeech || 'word'}): ${clean}`, true);
   } catch (error) {
-    setDictionaryResult('', false);
+    setDictionaryResult('Not found', true);
   }
 }
 
@@ -89,47 +92,3 @@ document.getElementById('word')?.addEventListener('keydown', (event) => {
     lookupWord();
   }
 });
-
-const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
-
-async function loadVideos() {
-  const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=music&key=${API_KEY}&type=video`
-  );
-
-  const data = await res.json();
-  console.log(data.items);
-}
-
-const videos = data.items;
-
-videos.forEach(video => {
-  const card = document.createElement("div");
-  card.className = "video-card";
-
-  card.innerHTML = `
-    <img src="${video.snippet.thumbnails.medium.url}" alt="${video.snippet.title}" />
-    <h3>${video.snippet.title}</h3>
-    <p>${video.snippet.channelTitle}</p>
-  `;
-
-  card.addEventListener("click", () => {
-    playVideo(video.id.videoId);
-  });
-
-  document.querySelector("#videos").appendChild(card);
-});
-
-function playVideo(videoId) {
-  document.querySelector("#player").innerHTML = `
-    <iframe
-      width="100%"
-      height="400"
-      src="https://www.youtube.com/embed/${videoId}"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  `;
-}
