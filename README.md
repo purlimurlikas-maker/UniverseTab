@@ -7,7 +7,7 @@ Try it: https://purlimurlikas-maker.github.io/UniverseTab/
 To use it, just open the link and use the different features.
 
 What does it do/have?
-shows you the current time,
+It shows you the current time,
 has a search bar, so you can look something up on the internet,
 has an English dictionary so you could look up the definition of a word,
 has a NASA apod which uploads a new picture/video every day,
