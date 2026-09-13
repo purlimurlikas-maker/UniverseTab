@@ -11,6 +11,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Petrona:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   
+  <div class="top-bar">
+    <a class="nav-button" href="https://purlimurlikas-maker.github.io/Space-fact/" target="_blank">All-knowing Space Tortoise</a>
+
+    <div class="dictionary-panel">
+      <h4>English dictionary</h4>
+
+      <div class="dictionary-controls">
+        <input id="word" class="dictionary-input" type="text" placeholder="Enter a word" />
+        <button id="lookup" class="dictionary-button">Look up</button>
+      </div>
+
+      <div id="result" class="dictionary-result" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <header class="title-wrap">
   <p class="timeelement" id="timeElement">Time</p>
     <script>
       function updateTime() {
@@ -23,10 +39,10 @@
       setInterval(updateTime, 1000);
     </script>
   
-  <a class="nav-button" href="https://purlimurlikas-maker.github.io/Space-fact/" target="_blank">All-knowing Space Tortoise</a>
-  <a class="nav-button" href="https://www.nasa.gov/" target="_blank">NASA</a>
-
 <h1> UniverseTab </h1>
+</header>
+
+
 
 <form class="search-form" action="https://www.google.com/search" method="get" target="_blank">
   <input type="search" name="q" placeholder="Look something up..." />
@@ -66,15 +82,19 @@
       />
     </a>
   </div>
+
+  <div class="app-tile NASA-app" id="NASA-app">
+    <a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer" aria-label="Open NASA">
+      <img
+        src="https://www.nasa.gov/wp-content/uploads/2023/04/nasa-logo-web-rgb.png"
+        alt="NASA"
+        width="48"
+        style="display:block; border-radius:12px; padding: 10px;"
+      />
+    </a>
+  </div>
 </div>
 
-<div class="dictionary-panel">
-  <div class="dictionary-controls">
-    <input id="word" class="dictionary-input" type="text" placeholder="Enter a word" />
-    <button id="lookup" class="dictionary-button">Look up</button>
-  </div>
-  <div id="result" class="dictionary-result" aria-live="polite"></div>
-</div>
 
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>

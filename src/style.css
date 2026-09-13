@@ -6,11 +6,37 @@ body {
   position: relative;
 }
 
-h1 {  font-family: "Orbitron", sans-serif; font-weight: 900; text-align: center; font-size: clamp(1.5rem, 6vw, 4rem); color: #918ef4; }
+h1 {  font-family: "Orbitron", sans-serif; font-weight: 900; text-align: center; font-size: clamp(2rem, 6vw, 4rem); color: #918ef4; }
 h2 { font-family: "Orbitron", sans-serif; font-weight: 900; text-align: justify; font-size: clamp(1.25rem, 4vw, 2.5rem) }
 h3 { font-family: "Orbitron", sans-serif; font-weight: 900; text-align: justify; font-size: clamp(1.2rem, 3vw, 2rem) }
+h4 { font-family: "Orbitron", sans-serif; font-weight: 700; text-align: justify; font-size: clamp(1rem, 2vw, 1.8rem) }
 nav{ text-align:center } 
 .normal-text { font-family: "Petrona", serif;  font-weight: 600; text-align: justify; font-size: clamp(1rem, 2vw, 1.5rem) }
+
+.title-wrap {
+  position: relative;
+  text-align: center;
+  padding-top: 2.5rem; 
+  margin-top: 1rem;
+}
+
+#timeElement {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 2;
+  color: #ffffff;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 5vw, 1.5rem);
+}
+
+.title-wrap h1 {
+  margin: 0;
+  padding-top: 1rem;
+}
 
 nav a {
  display: inline-block;
@@ -48,7 +74,8 @@ nav a {
 
 #youtube-app svg,
 #slack-app img,
-#spotify-app img {
+#spotify-app img 
+#NASA-app img {
   display: block;
   width: 48px;
   height: 48px;
@@ -69,6 +96,8 @@ nav a {
   transition: transform 0.2s ease, background-color 0.2s ease;
   width: 12rem;
   color: #ffffff;
+  align-self: center;
+  transform: translateY(-2px);
 }
 
 .nav-button:hover {
@@ -98,7 +127,7 @@ nav a {
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-start;
- gap: 1.5rem;
+  gap: 1.5rem;
   width: 100%;
   padding: 1rem 2rem 0 0;
   box-sizing: border-box;
@@ -109,7 +138,10 @@ nav a {
   width: clamp(260px, 35vw, 500px);
 }
 
-#timeElement { position: absolute; top: 20px; left: 90%; transform: translateX(-50%); z-index: 2; color: #ffffff; font-weight: 600; text-align: left; font-size: clamp(1rem, 4vw, 1.5rem); border: 3px solid #306bac; background-color:#141b41; border-radius: 10px; padding: 10px; margin: 0; font-family: "Petrona", serif; }
+h3 {
+  margin-left: 20px;
+  }
+
 
 .search-form {
   display: flex;
@@ -148,17 +180,25 @@ nav a {
 }
 
 .dictionary-panel {
-  max-width: 500px;
-  margin: 2rem 0 0;
-  padding: 0 1rem;
-  width: fit-content;
+  margin: 0;
+}
+
+h4 {
+  margin: 15px;
+  justify-content: center;
+}
+
+.dictionary-section h4 {
+  margin: 0 0 0.75rem;
+  font-family: "Orbitron", sans-serif;
 }
 
 .dictionary-controls {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   gap: 0.75rem;
+  margin-bottom: 40px;
+  margin-top: 0px;
 }
 
 .dictionary-input {
@@ -212,3 +252,17 @@ nav a {
   font-weight: 900;
   }
 
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem 0;
+  box-sizing: border-box;
+  flex-direction: row-reverse
+}
+
+.nav-button {
+  margin: 0;
+  align-self: center;
+}
