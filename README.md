@@ -7,13 +7,13 @@ Try it: https://purlimurlikas-maker.github.io/UniverseTab/
 To use it, just open the link and use the different features.
 
 What does it do/have?
-Shows you the current time
-Has a search bar, so you can look something up on the internet
-Has an English dictionary so you could look up the definition of a word
-Has a NASA apod which uploads a new picture/video every day
-Four "apps"
-Has a button which takes you to the website of The All-knowing Space Tortoise (another website made by me)
+shows you the current time,
+has a search bar, so you can look something up on the internet,
+has an English dictionary so you could look up the definition of a word,
+has a NASA apod which uploads a new picture/video every day,
+has four "apps",
+has a button which takes you to the website of The All-knowing Space Tortoise (another website made by me).
 
 Acknowledgements:
-I used AI to help me fix/fix problems, help me understand the code, and write me code that I had to insert to get something to work. I used the guide https://stardance.hackclub.com/missions/nasa-page/guide.
+I used AI to help me fix or fix problems, help me understand the code, and write me code that I had to insert to get something to work. I used the guide https://stardance.hackclub.com/missions/nasa-page/guide.
 
