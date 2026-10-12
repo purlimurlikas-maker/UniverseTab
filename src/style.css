@@ -113,7 +113,7 @@ nav a {
   width: clamp(200px, 35vw, 400px);
   height: auto;
   border: 3px solid #306bac;
-  display: block;
+  display: row;
   background-color: #141b41;
   border-radius: 12px;
   color: #ffffff;
