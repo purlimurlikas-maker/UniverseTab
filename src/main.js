@@ -61,6 +61,9 @@ if (NASA_API_KEY) {
           : `Error loading NASA photo: ${err.message}`;
         app.innerHTML = `<p>${message}</p>`;
       }
+    })
+    .finally(() => {
+      clearTimeout(timeout);
     });
 } else if (app) {
   app.innerHTML = '<p>Add VITE_NASA_API_KEY to your .env file to load the NASA photo.</p>';
