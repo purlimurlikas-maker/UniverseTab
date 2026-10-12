@@ -8,12 +8,7 @@ if (app) {
 }
 
 if (NASA_API_KEY) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000);
-
-  fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`, {
-    signal: controller.signal,
-  })
+  fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`NASA request failed (${response.status})`);
@@ -35,14 +30,8 @@ if (NASA_API_KEY) {
     })
     .catch((err) => {
       if (app) {
-        const message = err.name === 'AbortError'
-          ? 'NASA request timed out. Please refresh to try again.'
-          : `Error loading NASA photo: ${err.message}`;
-        app.innerHTML = `<p>${message}</p>`;
+        app.innerHTML = `<p>Error loading NASA photo: ${err.message}</p>`;
       }
-    })
-    .finally(() => {
-      clearTimeout(timeout);
     });
 } else if (app) {
   app.innerHTML = '<p>Add VITE_NASA_API_KEY to your .env file to load the NASA photo.</p>';
