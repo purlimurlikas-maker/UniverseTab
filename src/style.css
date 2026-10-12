@@ -121,18 +121,21 @@ nav a {
 }
 
 #app {
+  width: clamp(200px, 35vw, 400px);
+  margin-left: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 1.5rem;
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 2rem 0 0;
   box-sizing: border-box;
 }
 
 #app h3,
 .nasa-media {
-  width: min(100%, 500px);
+  width: clamp(260px, 35vw, 500px);
 }
 
 h3 {
