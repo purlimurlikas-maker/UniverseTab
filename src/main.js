@@ -8,18 +8,39 @@ if (app) {
 }
 
 if (NASA_API_KEY) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000);
+  async function fetchApod(attempt = 0) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
 
-  fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`, {
-    signal: controller.signal,
-  })
-    .then((response) => {
+    try {
+      const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`, {
+        signal: controller.signal,
+      });
+
+      if ([503, 504].includes(response.status) && attempt === 0) {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        return fetchApod(attempt + 1);
+      }
+
       if (!response.ok) {
         throw new Error(`NASA request failed (${response.status})`);
       }
-      return response.json();
-    })
+      return await response.json();
+    } catch (error) {
+      if (attempt === 0 && (error.name === 'AbortError' || error instanceof TypeError)) {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        return fetchApod(attempt + 1);
+      }
+      if (error.name === 'AbortError') {
+        throw new Error('NASA request timed out. Please refresh to try again.');
+      }
+      throw error;
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  fetchApod()
     .then((data) => {
       if (!app) return;
 
