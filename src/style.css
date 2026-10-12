@@ -110,29 +110,35 @@ nav a {
 }
 
 .nasa-media {
-  width: clamp(200px, 35vw, 400px);
+  width: 100%;
+  max-width: 400px;
   height: auto;
   border: 3px solid #306bac;
-  display: row;
+  display: block;
   background-color: #141b41;
   border-radius: 12px;
   color: #ffffff;
-  flex: 0 0 auto;
+  box-sizing: border-box;
 }
 
 #app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 400px) minmax(0, 1fr);
+  align-items: start;
   gap: 1rem;
   width: 100%;
   padding: 1rem;
   box-sizing: border-box;
 }
 
-#app h3,
-.nasa-media {
-  width: min(100%, 500px);
+#app h3 {
+  width: auto;
+  margin: 0;
+}
+
+#app .explanation {
+  width: 100%;
+  max-width: 500px;
 }
 
 h3 {
@@ -262,4 +268,10 @@ h4 {
 .nav-button {
   margin: 0;
   align-self: center;
+}
+
+@media (max-width: 760px) {
+  #app {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
